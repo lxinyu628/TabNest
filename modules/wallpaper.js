@@ -13,13 +13,13 @@ const IDB_VERSION = 1
 
 // Gradient presets
 const GRADIENTS = [
-  { id: 'default',  name: '默认', colors: ['#f4f8f5', '#e8f4ed', '#f5f0e8'] },
-  { id: 'mint',     name: '薄荷', colors: ['#e8f5f0', '#d4efe3', '#c5e6d5'] },
-  { id: 'sunset',  name: '日落', colors: ['#fdf2e9', '#fce4d4', '#fadbd8'] },
-  { id: 'ocean',   name: '海洋', colors: ['#e8f4f8', '#d4e9ef', '#c5dde6'] },
-  { id: 'lavender',name: '薰衣草', colors: ['#f3f0f8', '#e8e0f4', '#ddd0ea'] },
-  { id: 'peach',   name: '蜜桃', colors: ['#fef5f0', '#fde8dc', '#fad9c8'] },
-  { id: 'sage',    name: '鼠尾草', colors: ['#f0f4f0', '#e0e8e0', '#d0dcd0'] },
+  { id: 'default',  name: '默认', colors: ['#b8d4c4', '#a8ccbc', '#c0d0c4'] },
+  { id: 'mint',     name: '薄荷', colors: ['#a8d8c8', '#98c8b8', '#a8d0c0'] },
+  { id: 'sunset',  name: '日落', colors: ['#e8c8b0', '#d8b8a0', '#e0c8b8'] },
+  { id: 'ocean',   name: '海洋', colors: ['#a8c8d0', '#98b8c0', '#a0c0c8'] },
+  { id: 'lavender',name: '薰衣草', colors: ['#c0b8d0', '#b0a8c0', '#b8b0c8'] },
+  { id: 'peach',   name: '蜜桃', colors: ['#e8d8c8', '#d8c8b8', '#e0d0c0'] },
+  { id: 'sage',    name: '鼠尾草', colors: ['#b0c0b0', '#a0b0a0', '#b0c0b0'] },
 ]
 
 let currentWallpaper = {
