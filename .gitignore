@@ -3,9 +3,15 @@ node_modules/
 
 # Build output
 dist/
+*.zip
 
 # Local config (keep config.local.example.js)
 config.local.js
+
+# Screenshots & images
+image/
+*.png
+!icons/*.png
 
 # OS files
 .DS_Store

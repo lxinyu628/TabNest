@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "TabNest",
-  "version": "3.0.0",
+  "version": "1.0.0",
   "description": "Replace your new tab with a clean dashboard. Real-time clock, multi-engine search, quick bookmarks, weather, quotes, and a powerful tab manager — all in one place.",
   "permissions": ["tabs", "activeTab", "storage"],
   "host_permissions": [
