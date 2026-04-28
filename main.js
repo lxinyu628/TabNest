@@ -1,5 +1,5 @@
 /**
- * main.js — Organize Tab v3 entry point
+ * main.js — TabNest v3 entry point
  */
 
 import { initTheme }                      from './modules/ui.js'

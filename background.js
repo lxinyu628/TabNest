@@ -1,5 +1,5 @@
 /**
- * background.js — Service Worker for Organize Tab v2
+ * background.js — Service Worker for TabNest v2
  *
  * Responsibilities:
  * 1. Toolbar badge: shows open tab count (green / amber / red by volume)

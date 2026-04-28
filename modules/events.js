@@ -208,7 +208,7 @@ export function initEvents() {
       return
     }
 
-    // ── Close extra Organize Tab tabs ───────────────────────────
+    // ── Close extra TabNest tabs ───────────────────────────
     if (action === 'close-self-dupes') {
       const all = await chrome.tabs.query({})
       const extId = chrome.runtime.id

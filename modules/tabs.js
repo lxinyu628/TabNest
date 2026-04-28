@@ -145,7 +145,7 @@ export async function closeDuplicateTabs(urls, keepOne = true) {
   await fetchOpenTabs()
 }
 
-/** Close extra Organize Tab new-tab pages */
+/** Close extra TabNest new-tab pages */
 export async function closeSelfDupes() {
   const extId = chrome.runtime.id
   const newtabUrl = `chrome-extension://${extId}/index.html`

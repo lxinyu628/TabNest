@@ -372,7 +372,7 @@ export async function renderDashboard() {
   const statTabs = document.getElementById('statTabs')
   if (statTabs) statTabs.textContent = getOpenTabs().length
 
-  // Organize Tab dupe banner
+  // TabNest dupe banner
   const allTabs = getOpenTabs()
   const selfTabs = allTabs.filter(t => t.isSelfNewTab)
   const banner = document.getElementById('selfDupeBanner')

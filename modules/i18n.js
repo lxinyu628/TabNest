@@ -21,7 +21,7 @@ const T = {
     group:    { homepages: '首页' },
     search:   { placeholder: '搜索或输入网址…', searchTabs: '搜索标签页' },
     banner: {
-      dupe:       '当前有 <strong>{n}</strong> 个 Organize Tab 标签页。保留这一个？',
+      dupe:       '当前有 <strong>{n}</strong> 个 TabNest 标签页。保留这一个？',
       dupeAction: '关闭多余',
     },
     section: {
@@ -185,7 +185,7 @@ const T = {
     group:    { homepages: 'Homepages' },
     search:   { placeholder: 'Search or enter a URL…', searchTabs: 'Search tabs' },
     banner: {
-      dupe:       'You have <strong>{n}</strong> Organize Tab tabs open. Keep just this one?',
+      dupe:       'You have <strong>{n}</strong> TabNest tabs open. Keep just this one?',
       dupeAction: 'Close extras',
     },
     section: {
