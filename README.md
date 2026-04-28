@@ -1,10 +1,10 @@
 # TabNest
 
-> **一个更智能的新标签页。** Organize Tab 将 Chrome 默认的新标签页替换为一个清爽的控制台——按域名分组展示所有已打开的标签，一键批量关闭，稍后阅读，归零开始。
+> **更智能的新标签页。** TabNest 将 Chrome 默认的新标签页替换为一个清爽的仪表盘——实时时钟、多引擎搜索、快速书签、天气、语录，以及强大的 Tab 管理功能。
 
 ---
 
-# 目录
+## 目录
 
 - [功能介绍](#功能介绍)
 - [快速开始](#快速开始)
@@ -12,7 +12,6 @@
 - [开发指南](#开发指南)
 - [配置说明](#配置说明)
 - [架构设计](#架构设计)
-- [更新日志](#更新日志)
 
 ---
 
@@ -22,14 +21,17 @@
 
 | 功能 | 说明 |
 |---|---|
+| **实时时钟** | 左上角时钟，冒号闪烁，显示年月日星期 |
+| **多引擎搜索** | 支持 Google/Bing/百度/DuckDuckGo/GitHub，按 `/` 键快速聚焦 |
+| **快速书签** | 顶部可自定义的快速访问链接 |
 | **按域名分组** | 所有已打开的标签按域名自动归组，以卡片形式展示 |
 | **首页分组** | Gmail、X、LinkedIn、YouTube、GitHub 等被聚合到顶部"首页"卡片 |
 | **批量关闭** | 一键关闭某个域名的所有标签 |
 | **单个关闭** | 关闭单个标签，伴随嗖嗖音效 + 彩纸动画 |
 | **重复检测** | 相同 URL 的标签被标记为 `(Nx)` 徽章 |
 | **跳转标签** | 点击任意标签标题即可跳转到该标签（跨窗口有效） |
-| **稍后阅读** | 关闭前将标签保存 → 进入"稍后阅读"清单 |
-| **自身去重** | 若打开多个 Organize Tab 新标签页，顶区横幅允许保留其中一个 |
+| **Tab 管理抽屉** | 右侧抽屉式面板，轻松管理所有标签 |
+| **自身去重** | 若打开多个 TabNest 新标签页，顶区横幅允许保留其中一个 |
 
 ### 进阶功能
 
@@ -40,18 +42,20 @@
 | **自定义首页规则** | 在 `config.local.js` 中定义自己的"首页"匹配规则 |
 | **自定义域名分组** | 将任意域名聚合到一个带标签的卡片 |
 | **归档 + 搜索** | 完成的"保存"标签进入归档，支持按标题或 URL 搜索 |
+| **极简模式** | 按 `Z` 键进入专注模式，ESC 退出 |
 | **零外部请求** | 完全离线——无 Google Fonts CDN，无分析服务，无服务器 |
 
 ### 设计特性
 
 | 功能 | 说明 |
 |---|---|
-| **浅色 / 深色 / 跟随系统** | 三档主题切换（右上角按钮），本地存储持久化 |
+| **浅色 / 深色 / 跟随系统** | 三档主题切换，右上角按钮，本地存储持久化 |
 | **暖色清新风格** | 薄荷绿 + 柔珊瑚色系，如清晨花园般清爽 |
 | **流畅微动效** | 卡片加载淡入、悬停上浮、标签关闭过渡、弹簧动画 Toast |
 | **彩纸爆发动画** | 关闭标签时触发彩色粒子彩纸（纯 CSS + JS，无第三方库） |
 | **嗖嗖音效** | 通过 Web Audio API 程序合成，无需音频文件 |
 | **系统字体** | 使用操作系统字体栈，无需加载外部字体 |
+| **毛玻璃效果** | 轻盈的半透明毛玻璃风格 |
 
 ---
 
@@ -64,50 +68,61 @@
 
 ### 安装步骤
 
-**第一步 — 构建（或直接使用预构建版本）**
+**方式一：从 GitHub Releases 下载（推荐）**
+
+1. 访问 [TabNest Releases](https://github.com/lxinyu628/tabnest/releases)
+2. 下载最新版本的 `TabNest-v*.zip`
+3. 解压得到 `dist` 文件夹
+4. 打开 `chrome://extensions`
+5. 右上角：开启 **开发者模式**
+6. 左上角：点击 **加载已解压的扩展程序**
+7. 选择解压后的 `dist` 文件夹并确认
+
+> 扩展现已生效。打开一个**新标签页**，即可看到 TabNest。
+
+**方式二：从源码构建**
 
 ```bash
-# 若使用预构建的 dist/（推荐普通用户）：
-# 无需构建步骤，dist/ 已包含最新版本。
-
-# 若修改了代码：
-npm install
-npm run build      # 输出到 dist/
-```
-
-**第二步 — 加载到 Chrome**
-
-1. 打开 `chrome://extensions`
-2. 右上角：开启 **开发者模式**
-3. 左上角：点击 **加载已解压的扩展程序**
-4. 选择项目根目录下的 `dist/` 文件夹并确认
-
-> 扩展现已生效。打开一个**新标签页**，即可看到 Organize Tab。
-
-### 更新扩展
-
-```bash
+git clone https://github.com/lxinyu628/tabnest.git
+cd tabnest
 npm install
 npm run build
 ```
 
-然后打开 `chrome://extensions`，点击 Organize Tab 卡片的 **🔄 重新加载**按钮。
+然后在 `chrome://extensions` 中加载 `dist/` 文件夹。
+
+### 更新扩展
+
+```bash
+git pull
+npm run build
+```
+
+然后打开 `chrome://extensions`，点击 TabNest 卡片的 **🔄 重新加载**按钮。
 
 ---
 
 ## 项目结构
 
 ```
-organize-tab/
+tabnest/
 ├── index.html              # 新标签页 HTML 骨架
 ├── main.js                 # 入口（启动、主题、事件、渲染）
 ├── manifest.json           # 扩展清单（MV3）
 ├── background.js           # Service Worker（角标计数）
 ├── modules/
 │   ├── i18n.js            # 中英双语翻译系统
+│   ├── clock.js           # 实时时钟模块
+│   ├── search.js          # 多引擎搜索模块
+│   ├── weather.js         # 天气模块（Open-Meteo API）
+│   ├── hitokoto.js        # 一言/语录模块
+│   ├── zen.js             # 极简模式模块
+│   ├── links.js           # 快速书签模块
 │   ├── tabs.js            # Chrome Tab API — 查询、关闭、跳转、去重
 │   ├── storage.js         # chrome.storage.local — 保存/读取"稍后阅读"
 │   ├── grouping.js        # 首页检测、域名分组、标题清洗
+│   ├── drawer.js          # Tab 管理抽屉模块
+│   ├── settings.js        # 设置面板模块
 │   ├── render.js          # 所有 DOM 渲染函数
 │   ├── events.js          # 全局点击事件委托 + 所有处理器
 │   └── ui.js              # 音效、彩纸、Toast、主题切换
@@ -247,7 +262,7 @@ LOCAL_CUSTOM_GROUPS = [
 - **深色** — 深森林绿配色
 - **跟随系统** — 与操作系统 `prefers-color-scheme` 同步
 
-存储在 `localStorage`（`organizetab-theme`），跨会话持久化。
+存储在 `localStorage`（`tabnest-theme`），跨会话持久化。
 
 ---
 
@@ -264,6 +279,7 @@ index.html 加载
   ├─▶ main.js: DOMContentLoaded
   │     ├─ initI18n()          — 初始化语言翻译
   │     ├─ initTheme()         — 读取 localStorage，应用 CSS 变量
+  │     ├─ initClock()         — 启动实时时钟
   │     ├─ initEvents()        — 设置全局点击委托
   │     ├─ renderDashboard()   — 获取标签 + 渲染页面
   │     └─ chrome.runtime.onMessage — 监听 'tabs-changed'
@@ -290,9 +306,18 @@ renderDashboard()
 ...
 ```
 
+### Tab 管理抽屉
+
+右侧抽屉式面板，通过 `modules/drawer.js` 管理：
+
+- 宽度 380px，transform 滑入动画
+- 包含：Dupe Banner + Open Tabs + Recently Closed
+- 悬浮按钮固定在右侧中间，显示打开标签数量
+- ESC 键、遮罩点击、关闭按钮均可关闭
+
 ### 自身重复标签横幅
 
-`background.js` 作为 Chrome Service Worker 运行，追踪有多少个 Organize Tab 新标签页处于打开状态。当用户打开新标签时，`main.js` 检测重复并显示横幅。
+`background.js` 作为 Chrome Service Worker 运行，追踪有多少个 TabNest 新标签页处于打开状态。当用户打开新标签时，`main.js` 检测重复并显示横幅。
 
 ### 自动刷新
 
@@ -304,38 +329,9 @@ renderDashboard()
 
 ---
 
-## 更新日志
-
-### v2.0.0 — 2026-04-15
-
-**破坏性变更：**
-
-- 从单文件架构完全重写为模块化 ES Modules 架构
-- 引入 Vite 构建工具替代原始文件部署
-
-**新增功能：**
-
-- 浅色 / 深色 / 跟随系统三档主题切换
-- 通过 background 消息实现面板自动刷新
-- 自定义首页匹配规则（`LOCAL_LANDING_PAGE_PATTERNS`）
-- 自定义域名分组（`LOCAL_CUSTOM_GROUPS`）
-- 针对 GitHub、X、Reddit、Substack 的智能标题清洗
-- 归档 + 搜索已保存标签
-- Organize Tab 自身重复标签检测横幅
-- 中英双语支持
-
-**问题修复：**
-
-- 移除 Google Fonts CDN — 改用系统字体栈
-- `close-all` 从 hostname 匹配改为精确 URL 匹配（避免误关同域名下其他标签）
-
----
-
 ## License
 
 MIT — 详见 [LICENSE](LICENSE)。
-
----
 
 ---
 
@@ -349,14 +345,17 @@ MIT — 详见 [LICENSE](LICENSE)。
 
 | Feature | Description |
 |---|---|
+| **Real-time clock** | Top-left clock with blinking colon, showing date and weekday |
+| **Multi-engine search** | Google/Bing/Baidu/DuckDuckGo/GitHub, press `/` to focus |
+| **Quick bookmarks** | Customizable quick-access links at the top |
 | **Domain grouping** | All open tabs are automatically grouped by domain, displayed as cards |
-| **Homepages group** | Gmail, X, LinkedIn, YouTube, GitHub, etc. are pulled into a special "Homepages" card at the top |
+| **Homepages group** | Gmail, X, LinkedIn, YouTube, GitHub, etc. are pulled into a special "Homepages" card |
 | **Bulk close** | Close all tabs from one domain with a single click |
 | **Single tab close** | Close individual tabs with a satisfying swoosh sound + confetti burst |
 | **Duplicate detection** | Tabs with the same URL are flagged with a `(Nx)` badge |
 | **Jump to tab** | Click any tab title to instantly switch to that tab (works across windows) |
-| **Save for later** | Bookmark a tab before closing it → appears in the "Saved for later" checklist |
-| **Self deduplication** | If multiple Organize Tab new-tab pages are open, a banner lets you keep just one |
+| **Tab management drawer** | Right-side drawer panel for easy tab management |
+| **Self deduplication** | If multiple TabNest new-tab pages are open, a banner lets you keep just one |
 
 ### Advanced
 
@@ -367,6 +366,7 @@ MIT — 详见 [LICENSE](LICENSE)。
 | **Custom landing patterns** | Define your own "homepage" rules in `config.local.js` |
 | **Custom domain groups** | Group arbitrary domains together with custom labels |
 | **Archive + search** | Completed "saved" tabs go to archive; search them by title or URL |
+| **Zen mode** | Press `Z` to enter focus mode, ESC to exit |
 | **Zero external requests** | Fully offline — no Google Fonts CDN, no analytics, no servers |
 
 ### Design
@@ -379,6 +379,7 @@ MIT — 详见 [LICENSE](LICENSE)。
 | **Confetti burst** | Closing tabs triggers colorful particle confetti (CSS + JS, no library) |
 | **Swoosh sound** | Synthesized via Web Audio API — no audio files needed |
 | **System fonts** | Uses the OS font stack, no external font requests |
+| **Glassmorphism** | Lightweight frosted glass effect |
 
 ---
 
@@ -391,34 +392,37 @@ MIT — 详见 [LICENSE](LICENSE)。
 
 ### Installation
 
-**Step 1 — Build or use the pre-built version**
+**Option 1: Download from GitHub Releases (Recommended)**
+
+1. Visit [TabNest Releases](https://github.com/lxinyu628/tabnest/releases)
+2. Download the latest `TabNest-v*.zip`
+3. Extract to get the `dist` folder
+4. Open `chrome://extensions`
+5. Top-right: toggle **Developer mode** ON
+6. Top-left: click **Load unpacked**
+7. Navigate to the `dist` folder and confirm
+
+> The extension is now active. Open a **new tab** and you should see TabNest.
+
+**Option 2: Build from source**
 
 ```bash
-# Using the pre-built dist/ (recommended for users):
-# No build step needed. dist/ is already built and ready.
-
-# If making code changes:
-npm install
-npm run build      # Output → dist/
-```
-
-**Step 2 — Load into Chrome**
-
-1. Open `chrome://extensions`
-2. Top-right: toggle **Developer mode** ON
-3. Top-left: click **Load unpacked**
-4. Navigate to the `dist/` folder and confirm
-
-> The extension is now active. Open a **new tab** and you should see Organize Tab.
-
-### Updating
-
-```bash
+git clone https://github.com/lxinyu628/tabnest.git
+cd tabnest
 npm install
 npm run build
 ```
 
-Then go to `chrome://extensions` and click the **🔄 Reload** button on the Organize Tab card.
+Then load the `dist/` folder in `chrome://extensions`.
+
+### Updating
+
+```bash
+git pull
+npm run build
+```
+
+Then go to `chrome://extensions` and click the **🔄 Reload** button on the TabNest card.
 
 ---
 
