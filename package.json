@@ -1,6 +1,6 @@
 {
   "name": "tabnest",
-  "version": "3.0.0",
+  "version": "1.0.0",
   "description": "A smarter new tab page for Chrome. See all your tabs grouped by domain, close in bulk, save for later.",
   "private": true,
   "type": "module",
