@@ -1,0 +1,26 @@
+<!-- ============================================================
+  TabNest Icon — Option D: 拱门 (Arch / Nest Entrance) 128px
+  Concept: 圆拱门框架，标签从拱门中"冒出"，像走进标签收纳洞穴
+  ============================================================ -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <circle cx="64" cy="64" r="60" fill="#f4f8f5"/>
+
+  <!-- Arch frame — mint green, thick stroke -->
+  <path d="M18 100V65a46 46 0 0 1 92 0v35" stroke="#3aaa6e" stroke-width="10" fill="none" stroke-linecap="round"/>
+
+  <!-- Tab bars inside arch — 3 levels -->
+  <!-- Top: coral muted -->
+  <rect x="30" y="30" width="68" height="16" rx="8" fill="#e8835a" opacity="0.5"/>
+  <circle cx="44" cy="38" r="6" fill="#f4f8f5" opacity="0.8"/>
+  <rect x="58" y="35" width="26" height="7" rx="3.5" fill="#e8835a"/>
+
+  <!-- Middle: mint medium -->
+  <rect x="30" y="52" width="68" height="16" rx="8" fill="#3aaa6e" opacity="0.65"/>
+  <circle cx="44" cy="60" r="6" fill="#f4f8f5" opacity="0.85"/>
+  <rect x="58" y="57" width="26" height="7" rx="3.5" fill="#3aaa6e"/>
+
+  <!-- Bottom: mint full -->
+  <rect x="30" y="74" width="68" height="16" rx="8" fill="#3aaa6e"/>
+  <circle cx="44" cy="82" r="6" fill="#f4f8f5"/>
+  <rect x="58" y="79" width="26" height="7" rx="3.5" fill="rgba(255,255,255,0.5)"/>
+</svg>

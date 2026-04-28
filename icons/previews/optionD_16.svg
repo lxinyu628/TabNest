@@ -1,0 +1,16 @@
+<!-- ============================================================
+  TabNest Icon — Option D: 拱门 (Arch / Nest Entrance)
+  Concept: 圆拱门形状，里面藏着一排标签，像走进一个标签收纳洞穴
+  ============================================================ -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none">
+  <!-- Arch frame — mint green stroke -->
+  <path d="M2 14V8a6 6 0 0 1 12 0v6" stroke="#3aaa6e" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Tab bars inside the arch -->
+  <rect x="4" y="9" width="8" height="2" rx="1" fill="#3aaa6e"/>
+  <rect x="4" y="6" width="8" height="2" rx="1" fill="#e8835a" opacity="0.7"/>
+  <rect x="4" y="3" width="8" height="2" rx="1" fill="#e8835a" opacity="0.45"/>
+  <!-- Favicon dots on bars -->
+  <circle cx="5.5" cy="10" r="0.8" fill="#f4f8f5"/>
+  <circle cx="5.5" cy="7" r="0.8" fill="#f4f8f5"/>
+  <circle cx="5.5" cy="4" r="0.8" fill="#f4f8f5"/>
+</svg>

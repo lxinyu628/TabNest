@@ -1,0 +1,16 @@
+<!-- ============================================================
+  TabNest Icon — Option F: 巢 (Nest) — 一片大标签，里面藏着一窝小标签
+  Concept: 单个大tab正面视图，中间有几个小tab形状堆叠，像"巢中标签"
+  ============================================================ -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none">
+  <!-- Main tab (the "nest" container) -->
+  <rect x="1" y="2" width="14" height="12" rx="2" fill="#3aaa6e"/>
+  <!-- Bottom notch -->
+  <rect x="5" y="13.5" width="6" height="1.5" rx="0.75" fill="#f4f8f5"/>
+  <!-- Inner tabs (nested inside) — coral top, mint bottom -->
+  <rect x="3" y="4" width="10" height="3" rx="1" fill="#e8835a" opacity="0.75"/>
+  <rect x="3" y="8" width="10" height="3.5" rx="1" fill="#f4f8f5" opacity="0.85"/>
+  <!-- Favicon dots -->
+  <circle cx="5.5" cy="5.5" r="1.2" fill="#f4f8f5"/>
+  <circle cx="8.5" cy="9.75" r="1.2" fill="#3aaa6e"/>
+</svg>

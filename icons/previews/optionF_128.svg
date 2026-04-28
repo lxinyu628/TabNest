@@ -1,0 +1,32 @@
+<!-- ============================================================
+  TabNest Icon — Option F: 巢中标签 128px
+  Concept: 一片大tab正面视图，里面"嵌套"着几个小tab，像窝里的小标签
+  ============================================================ -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <circle cx="64" cy="64" r="60" fill="#f4f8f5"/>
+
+  <!-- Main outer tab (the "nest" container) -->
+  <rect x="14" y="22" width="100" height="80" rx="12" fill="#3aaa6e"/>
+  <!-- Bottom notch -->
+  <rect x="52" y="96" width="24" height="10" rx="5" fill="#f4f8f5"/>
+
+  <!-- Inner tab 1: coral, top-left -->
+  <rect x="24" y="32" width="80" height="18" rx="7" fill="#e8835a" opacity="0.75"/>
+  <circle cx="38" cy="41" r="7" fill="#f4f8f5"/>
+
+  <!-- Inner tab 2: mint medium -->
+  <rect x="24" y="55" width="80" height="18" rx="7" fill="#f4f8f5" opacity="0.85"/>
+  <circle cx="38" cy="64" r="7" fill="#3aaa6e"/>
+
+  <!-- Inner tab 3: mint full -->
+  <rect x="24" y="78" width="80" height="16" rx="7" fill="#3aaa6e"/>
+  <circle cx="38" cy="86" r="6" fill="#f4f8f5"/>
+
+  <!-- Title lines on inner tabs -->
+  <rect x="52" y="38" width="40" height="7" rx="3.5" fill="#e8835a"/>
+  <rect x="52" y="61" width="40" height="7" rx="3.5" fill="#3aaa6e" opacity="0.6"/>
+  <rect x="52" y="83" width="30" height="6" rx="3" fill="rgba(255,255,255,0.45)"/>
+
+  <!-- Close button -->
+  <circle cx="106" cy="32" r="6" fill="rgba(255,255,255,0.35)"/>
+</svg>

@@ -1,0 +1,16 @@
+{
+  "name": "tabnest",
+  "version": "3.0.0",
+  "description": "A smarter new tab page for Chrome. See all your tabs grouped by domain, close in bulk, save for later.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}

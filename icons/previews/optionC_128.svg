@@ -1,0 +1,30 @@
+<!-- ============================================================
+  TabNest Icon — Option C: 字母 T (128px)
+  Concept: 3条水平tab堆叠，形成"T"字结构
+  ============================================================ -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <!-- Background -->
+  <circle cx="64" cy="64" r="60" fill="#f4f8f5"/>
+
+  <!-- Top bar of T (wide tab) -->
+  <rect x="12" y="14" width="104" height="28" rx="8" fill="#3aaa6e"/>
+  <!-- Title lines on top bar -->
+  <rect x="24" y="24" width="30" height="8" rx="4" fill="rgba(255,255,255,0.5)"/>
+  <rect x="62" y="24" width="18" height="8" rx="4" fill="rgba(255,255,255,0.3)"/>
+  <rect x="88" y="24" width="12" height="8" rx="4" fill="rgba(255,255,255,0.25)"/>
+  <!-- Close on top bar -->
+  <circle cx="108" cy="20" r="6" fill="rgba(255,255,255,0.35)"/>
+
+  <!-- Middle bar -->
+  <rect x="38" y="46" width="52" height="20" rx="6" fill="#3aaa6e" opacity="0.8"/>
+  <rect x="48" y="53" width="32" height="7" rx="3.5" fill="rgba(255,255,255,0.4)"/>
+
+  <!-- Bottom bar (stem of T) -->
+  <rect x="44" y="70" width="40" height="44" rx="8" fill="#3aaa6e"/>
+  <!-- Title lines on stem -->
+  <rect x="52" y="80" width="24" height="8" rx="4" fill="rgba(255,255,255,0.5)"/>
+  <rect x="52" y="94" width="16" height="7" rx="3.5" fill="rgba(255,255,255,0.3)"/>
+  <!-- Favicon on stem -->
+  <circle cx="64" cy="106" r="8" fill="#f4f8f5"/>
+  <circle cx="62" cy="103" r="2.5" fill="rgba(255,255,255,0.4)"/>
+</svg>

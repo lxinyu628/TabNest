@@ -1,0 +1,29 @@
+<!-- ============================================================
+  TabNest Icon — Option E: 字母 N — 极简几何 128px
+  Concept: 两竖一折的 N，左竖用两截不同颜色=两列标签
+  ============================================================ -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <circle cx="64" cy="64" r="60" fill="#f4f8f5"/>
+
+  <!-- Left column top segment: coral = back tab -->
+  <rect x="22" y="20" width="28" height="30" rx="8" fill="#e8835a"/>
+  <!-- Left column bottom segment: mint = front tab -->
+  <rect x="22" y="54" width="28" height="52" rx="8" fill="#3aaa6e"/>
+
+  <!-- Diagonal stroke — the "N" connector -->
+  <path d="M50 30 L78 98" stroke="#3aaa6e" stroke-width="14" stroke-linecap="round"/>
+
+  <!-- Right column: mint = organized tab -->
+  <rect x="78" y="24" width="28" height="80" rx="8" fill="#3aaa6e"/>
+
+  <!-- Favicon dots -->
+  <circle cx="36" cy="35" r="9" fill="#f4f8f5"/>
+  <circle cx="36" cy="80" r="9" fill="#f4f8f5"/>
+  <circle cx="92" cy="64" r="9" fill="#f4f8f5"/>
+  <!-- Gloss on right favicon -->
+  <circle cx="89" cy="60" r="3" fill="rgba(255,255,255,0.4)"/>
+
+  <!-- Small title lines -->
+  <rect x="56" y="54" width="18" height="8" rx="4" fill="rgba(255,255,255,0.5)"/>
+  <rect x="56" y="70" width="12" height="7" rx="3.5" fill="rgba(255,255,255,0.3)"/>
+</svg>
