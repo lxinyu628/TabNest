@@ -18,7 +18,7 @@ import { initSettings }                   from './modules/settings.js'
 
 // Global error handler for debugging
 window.addEventListener('error', (e) => {
-  console.error('[organize-tab] Runtime error:', e.message, 'at', e.filename + ':' + e.lineno)
+  console.error('[tabnest] Runtime error:', e.message, 'at', e.filename + ':' + e.lineno)
 })
 
 // Boot
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     updateDrawerCount()
     console.log('[main] renderDashboard done - boot complete!')
   } catch (err) {
-    console.error('[organize-tab] Boot error:', err)
+    console.error('[tabnest] Boot error:', err)
     console.error(err.stack)
   }
 

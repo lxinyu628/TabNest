@@ -116,7 +116,7 @@ async function loadWallpaper() {
       // Validate saved data has required properties
       if (saved && typeof saved.type === 'string' && saved.value) {
         currentWallpaper = saved
-        console.log('[organize-tab] Wallpaper loaded:', saved.type)
+        console.log('[tabnest] Wallpaper loaded:', saved.type)
 
         // For image type with IDB reference, load from IndexedDB
         if (saved.type === 'image' && saved.idbId) {
@@ -125,16 +125,16 @@ async function loadWallpaper() {
             if (objectUrl) {
               currentWallpaper.resolvedUrl = objectUrl
               currentObjectUrl = objectUrl
-              console.log('[organize-tab] Image loaded from IndexedDB')
+              console.log('[tabnest] Image loaded from IndexedDB')
             }
           } catch (err) {
-            console.warn('[organize-tab] Failed to load image from IndexedDB:', err)
+            console.warn('[tabnest] Failed to load image from IndexedDB:', err)
           }
         }
       }
     }
   } catch (err) {
-    console.warn('[organize-tab] Failed to load wallpaper:', err)
+    console.warn('[tabnest] Failed to load wallpaper:', err)
   }
   return currentWallpaper
 }
@@ -142,7 +142,7 @@ async function loadWallpaper() {
 async function saveWallpaper() {
   // Validate data before saving
   if (!currentWallpaper || !currentWallpaper.type) {
-    console.warn('[organize-tab] Invalid wallpaper data, skip saving')
+    console.warn('[tabnest] Invalid wallpaper data, skip saving')
     return false
   }
 
@@ -155,10 +155,10 @@ async function saveWallpaper() {
 
   try {
     await chrome.storage.local.set({ [WALLPAPER_KEY]: toSave })
-    console.log('[organize-tab] Wallpaper saved:', currentWallpaper.type)
+    console.log('[tabnest] Wallpaper saved:', currentWallpaper.type)
     return true
   } catch (err) {
-    console.warn('[organize-tab] Failed to save wallpaper:', err)
+    console.warn('[tabnest] Failed to save wallpaper:', err)
     showToast('壁纸保存失败')
     return false
   }
@@ -256,16 +256,16 @@ async function fetchRandomWallpaper() {
       const url = await RANDOM_WALLPAPER_SOURCES[index]()
       if (url) {
         currentSourceIndex = (index + 1) % RANDOM_WALLPAPER_SOURCES.length
-        console.log(`[organize-tab] Wallpaper source ${index + 1} works: ${url.substring(0, 60)}...`)
+        console.log(`[tabnest] Wallpaper source ${index + 1} works: ${url.substring(0, 60)}...`)
         return url
       }
     } catch (err) {
-      console.warn(`[organize-tab] Wallpaper source ${index + 1} failed:`, err.message)
+      console.warn(`[tabnest] Wallpaper source ${index + 1} failed:`, err.message)
     }
   }
 
   // Ultimate fallback: solid gradient placeholder
-  console.warn('[organize-tab] All wallpaper sources failed, using gradient fallback')
+  console.warn('[tabnest] All wallpaper sources failed, using gradient fallback')
   return null
 }
 
@@ -297,7 +297,7 @@ async function loadRandomWallpaper() {
       showToast('网络不可用，请使用渐变壁纸')
     }
   } catch (err) {
-    console.error('[organize-tab] Failed to load random wallpaper:', err)
+    console.error('[tabnest] Failed to load random wallpaper:', err)
   }
 
   if (btn) {
@@ -341,7 +341,7 @@ function setupImageUpload() {
     const file = e.dataTransfer.files[0]
     if (file && file.type.startsWith('image/')) {
       handleImageFile(file).catch(err => {
-        console.warn('[organize-tab] Image upload error:', err)
+        console.warn('[tabnest] Image upload error:', err)
       })
     } else if (file) {
       showToast('请上传图片文件')
@@ -352,7 +352,7 @@ function setupImageUpload() {
     const file = fileInput.files[0]
     if (file) {
       handleImageFile(file).catch(err => {
-        console.warn('[organize-tab] Image upload error:', err)
+        console.warn('[tabnest] Image upload error:', err)
       })
     }
   })
@@ -383,7 +383,7 @@ async function handleImageFile(file) {
 
     if (file.size > IDB_THRESHOLD) {
       // Large image: use IndexedDB for storage
-      console.log('[organize-tab] Large image detected, using IndexedDB storage')
+      console.log('[tabnest] Large image detected, using IndexedDB storage')
 
       const idbId = await saveImageToIDB(file)
       imageUrl = await loadImageFromIDB(idbId)
@@ -405,14 +405,14 @@ async function handleImageFile(file) {
 
       // Save metadata to chrome.storage.local (not the blob)
       await saveWallpaper()
-      console.log('[organize-tab] Large image saved to IndexedDB')
+      console.log('[tabnest] Large image saved to IndexedDB')
     } else {
       // Small image: use traditional data URL for simplicity
       const dataUrl = await readFileAsDataURL(file)
       currentWallpaper = { type: 'image', value: dataUrl }
       imageUrl = dataUrl
       await saveWallpaper()
-      console.log('[organize-tab] Small image saved as data URL')
+      console.log('[tabnest] Small image saved as data URL')
     }
 
     // Apply wallpaper
@@ -432,7 +432,7 @@ async function handleImageFile(file) {
 
     showToast('壁纸已更新')
   } catch (err) {
-    console.error('[organize-tab] Image processing failed:', err)
+    console.error('[tabnest] Image processing failed:', err)
     showToast('图片处理失败')
   }
 }

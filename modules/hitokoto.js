@@ -28,7 +28,7 @@ async function fetchHitokoto() {
       id: data.id,
     }
   } catch (err) {
-    console.warn('[organize-tab] Hitokoto fetch failed:', err)
+    console.warn('[tabnest] Hitokoto fetch failed:', err)
     return null
   }
 }
@@ -38,7 +38,7 @@ function saveToCache(data) {
     ...data,
     time: Date.now(),
   } }).catch(err => {
-    console.warn('[organize-tab] Hitokoto cache save failed:', err)
+    console.warn('[tabnest] Hitokoto cache save failed:', err)
   })
 }
 

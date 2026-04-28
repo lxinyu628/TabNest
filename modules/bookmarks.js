@@ -296,7 +296,7 @@ function bindAddFromCurrentTab() {
         renderLinks()
         showToast(t('ql.addCurrentTabSuccess'))
       } catch (err) {
-        console.error('[organize-tab] add from tab:', err)
+        console.error('[tabnest] add from tab:', err)
         showToast(t('toast.saveFailed'))
       }
     })

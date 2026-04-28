@@ -326,7 +326,7 @@ export async function renderDeferredColumn() {
       archiveEl.style.display = 'none'
     }
   } catch (err) {
-    console.warn('[organize-tab] Could not load saved tabs:', err)
+    console.warn('[tabnest] Could not load saved tabs:', err)
     column.style.display = 'none'
   }
 }

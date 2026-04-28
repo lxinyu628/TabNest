@@ -501,7 +501,7 @@ export function initEvents() {
       archiveList.innerHTML = results.map(renderArchiveItem).join('')
         || `<div style="font-size:11px;color:var(--muted);padding:8px 0">${t('archive.noResults')}</div>`
     } catch (err) {
-      console.warn('[organize-tab] Archive search failed:', err)
+      console.warn('[tabnest] Archive search failed:', err)
     }
   })
 }
