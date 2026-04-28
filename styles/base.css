@@ -526,8 +526,14 @@ body {
 .wallpaper-gradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #b8d4c4 0%, #a8ccbc 50%, #c0d0c4 100%);
+  background: transparent;
   transition: opacity 0.5s ease;
+}
+
+/* 默认渐变（由 JS 在 initWallpaper 后应用） */
+[data-gradient] .wallpaper-gradient,
+.wallpaper-gradient.ready {
+  background: linear-gradient(135deg, #b8d4c4 0%, #a8ccbc 50%, #c0d0c4 100%);
 }
 
 [data-theme="dark"] .wallpaper-gradient {
@@ -2207,7 +2213,7 @@ body {
 .hero-clock-h,
 .hero-clock-m {
   font-size: 80px;
-  font-weight: 200;           /* 极细，贴近 iOS 锁屏感 */
+  font-weight: 400;           /* 加粗，清晰易读 */
   font-variant-numeric: tabular-nums;
   letter-spacing: -3px;
   color: #ffffff;
@@ -2219,7 +2225,7 @@ body {
 
 .hero-clock-sep {
   font-size: 60px;
-  font-weight: 200;
+  font-weight: 400;
   margin: 0 6px;
   color: #ffffff;
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0.2);
@@ -2247,7 +2253,7 @@ body {
 .hero-date {
   text-align: center;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 600;
   color: #ffffff;
   -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25);
   letter-spacing: 0.6px;

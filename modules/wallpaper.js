@@ -197,6 +197,9 @@ function applyWallpaper(wp) {
     img.src = wp.value
     img.style.display = 'block'
   }
+
+  // Mark wallpaper as ready to show gradient background
+  layer.classList.add('ready')
 }
 
 // ── Gradient grid ──────────────────────────────────────────────────────────────

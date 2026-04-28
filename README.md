@@ -1,6 +1,16 @@
 # TabNest
 
-> **更智能的新标签页。** TabNest 将 Chrome 默认的新标签页替换为一个清爽的仪表盘——实时时钟、多引擎搜索、快速书签、天气、语录，以及强大的 Tab 管理功能。
+> **更智能的新标签页。** TabNest 将 Chrome 默认的新标签页替换为一个清爽的仪表盘——实时时钟、多引擎搜索、快速书签、壁纸系统、天气、语录，以及强大的 Tab 管理功能。
+
+---
+
+## 界面预览
+
+<img src="image/image_001.png" alt="TabNest 界面预览 1" width="100%" />
+<img src="image/image_002.png" alt="TabNest 界面预览 2" width="100%" />
+<img src="image/image_003.png" alt="TabNest 界面预览 3" width="100%" />
+<img src="image/image_004.png" alt="TabNest 界面预览 4" width="100%" />
+<img src="image/image_005.png" alt="TabNest 界面预览 5" width="100%" />
 
 ---
 
@@ -37,6 +47,9 @@
 
 | 功能 | 说明 |
 |---|---|
+| **壁纸系统** | 预设渐变、自定义图片上传、随机壁纸（必应每日/Lorem Picsum） |
+| **天气模块** | 基于 Open-Meteo API，无 Key 依赖，免费使用 |
+| **一言语录** | 每次打开新标签显示随机励志/诗词句子 |
 | **面板自动刷新** | 其他窗口标签变化时，面板通过 `chrome.runtime` 消息自动刷新 |
 | **标题清洗** | GitHub issues/PR、X 帖子、Reddit 帖子、Substack 文章都有专项处理 |
 | **自定义首页规则** | 在 `config.local.js` 中定义自己的"首页"匹配规则 |
@@ -111,13 +124,15 @@ tabnest/
 ├── manifest.json           # 扩展清单（MV3）
 ├── background.js           # Service Worker（角标计数）
 ├── modules/
-│   ├── i18n.js            # 中英双语翻译系统
+│   ├── i18n.js           # 中英双语翻译系统
 │   ├── clock.js           # 实时时钟模块
 │   ├── search.js          # 多引擎搜索模块
 │   ├── weather.js         # 天气模块（Open-Meteo API）
 │   ├── hitokoto.js        # 一言/语录模块
+│   ├── wallpaper.js       # 壁纸系统（渐变/图片/随机）
 │   ├── zen.js             # 极简模式模块
 │   ├── links.js           # 快速书签模块
+│   ├── bookmarks.js       # 书签管理模块
 │   ├── tabs.js            # Chrome Tab API — 查询、关闭、跳转、去重
 │   ├── storage.js         # chrome.storage.local — 保存/读取"稍后阅读"
 │   ├── grouping.js        # 首页检测、域名分组、标题清洗
@@ -129,6 +144,7 @@ tabnest/
 ├── styles/
 │   └── base.css            # 完整设计系统（CSS 变量、全部组件）
 ├── icons/                  # 扩展图标（16/48/128px）
+├── image/                  # README 截图
 ├── dist/                   # 构建产物（加载到 Chrome）
 ├── vite.config.js          # Vite 构建配置
 └── package.json
@@ -264,6 +280,14 @@ LOCAL_CUSTOM_GROUPS = [
 
 存储在 `localStorage`（`tabnest-theme`），跨会话持久化。
 
+### 壁纸设置
+
+在设置面板中可以：
+
+- 选择预设渐变壁纸（默认/薄荷/日落/海洋/薰衣草/蜜桃/鼠尾草）
+- 上传自定义图片作为壁纸（大图自动存储到 IndexedDB）
+- 获取随机壁纸（必应每日/Lorem Picsum）
+
 ---
 
 ## 架构设计
@@ -280,6 +304,9 @@ index.html 加载
   │     ├─ initI18n()          — 初始化语言翻译
   │     ├─ initTheme()         — 读取 localStorage，应用 CSS 变量
   │     ├─ initClock()         — 启动实时时钟
+  │     ├─ initWallpaper()     — 加载并应用壁纸
+  │     ├─ initHitokoto()      — 获取一言语录
+  │     ├─ initWeather()       — 获取天气信息
   │     ├─ initEvents()        — 设置全局点击委托
   │     ├─ renderDashboard()   — 获取标签 + 渲染页面
   │     └─ chrome.runtime.onMessage — 监听 'tabs-changed'
@@ -314,6 +341,14 @@ renderDashboard()
 - 包含：Dupe Banner + Open Tabs + Recently Closed
 - 悬浮按钮固定在右侧中间，显示打开标签数量
 - ESC 键、遮罩点击、关闭按钮均可关闭
+
+### 壁纸系统
+
+通过 `modules/wallpaper.js` 管理：
+
+- **渐变壁纸**：7 种预设渐变，颜色存储在 JS 中
+- **自定义图片**：小图用 Data URL，大图用 IndexedDB（避免超出 chrome.storage 配额）
+- **随机壁纸**：必应每日（首选）、Lorem Picsum（备选），纯前端无需 Key
 
 ### 自身重复标签横幅
 
@@ -361,6 +396,9 @@ MIT — 详见 [LICENSE](LICENSE)。
 
 | Feature | Description |
 |---|---|
+| **Wallpaper system** | Preset gradients, custom image upload, random wallpapers (Bing Daily/Lorem Picsum) |
+| **Weather widget** | Based on Open-Meteo API, no API key required, free to use |
+| **Hitokoto quotes** | Random inspirational quotes/poetry on each new tab |
 | **Panel auto-refresh** | When tabs change in other windows, the panel refreshes automatically via `chrome.runtime` messaging |
 | **Title cleaning** | GitHub issues/PRs, X posts, Reddit threads, Substack articles get readable smart titles |
 | **Custom landing patterns** | Define your own "homepage" rules in `config.local.js` |
