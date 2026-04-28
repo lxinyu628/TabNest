@@ -7,12 +7,12 @@
 /* ── CSS Variables ──────────────────────────────────────── */
 :root {
   /* Palette — warm & fresh */
-  --bg:              #f4f8f5;
-  --surface:         rgba(255, 255, 255, 0.72);
+  --bg:              #c8d9ce;
+  --surface:         rgba(255, 255, 255, 0.75);
   --surface-solid:   #ffffff;
-  --surface-2:       rgba(255, 255, 255, 0.45);
-  --border:          rgba(70, 130, 100, 0.12);
-  --border-hover:    rgba(70, 130, 100, 0.22);
+  --surface-2:       rgba(255, 255, 255, 0.5);
+  --border:          rgba(70, 130, 100, 0.15);
+  --border-hover:    rgba(70, 130, 100, 0.25);
 
   /* Text */
   --text:            #1a3025;
@@ -526,7 +526,7 @@ body {
 .wallpaper-gradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #f4f8f5 0%, #e8f4ed 50%, #f5f0e8 100%);
+  background: linear-gradient(135deg, #b8d4c4 0%, #a8ccbc 50%, #c0d0c4 100%);
   transition: opacity 0.5s ease;
 }
 
@@ -2210,20 +2210,22 @@ body {
   font-weight: 200;           /* 极细，贴近 iOS 锁屏感 */
   font-variant-numeric: tabular-nums;
   letter-spacing: -3px;
-  color: rgba(255, 255, 255, 0.95);
+  color: #ffffff;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.2);
   text-shadow:
-    0 2px 12px rgba(0, 0, 0, 0.2),
-    0 0 24px rgba(0, 0, 0, 0.1);
+    0 2px 4px rgba(0, 0, 0, 0.3),
+    0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .hero-clock-sep {
   font-size: 60px;
   font-weight: 200;
   margin: 0 6px;
-  color: rgba(255, 255, 255, 0.95);
+  color: #ffffff;
+  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.2);
   text-shadow:
-    0 2px 12px rgba(0, 0, 0, 0.2),
-    0 0 24px rgba(0, 0, 0, 0.1);
+    0 2px 4px rgba(0, 0, 0, 0.3),
+    0 4px 12px rgba(0, 0, 0, 0.15);
   animation: hero-blink 1s step-start infinite;
 }
 
@@ -2246,16 +2248,22 @@ body {
   text-align: center;
   font-size: 15px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.85);
+  color: #ffffff;
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.25);
   letter-spacing: 0.6px;
   margin-bottom: 0;
   margin-top: 8px;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.3),
+    0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 [data-theme="dark"] .hero-date {
-  color: rgba(255, 255, 255, 0.85);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.3);
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.4),
+    0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 [data-theme="dark"] .hero-date {
